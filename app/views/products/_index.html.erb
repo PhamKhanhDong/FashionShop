@@ -29,7 +29,7 @@
         remote: true, method: :post, class: "add-to-cart pull-left" do %>
         <i class="fa fa-shopping-cart"></i>
       <% end %>
-      <%= link_to t("products.details"), product_path(product),
+      <%= link_to t("products.details"), product1_path(product.id, product.name.gsub(" ", "-").downcase),
         class: "beta-btn primary" %>
       <% if logged_in? && !(request.original_url.include? "wishlists") %>
         <%= link_to product_wishlists_path(product),

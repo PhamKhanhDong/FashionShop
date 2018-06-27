@@ -62,4 +62,5 @@ Rails.application.routes.draw do
   end
   resources :categories, only: %i(index show)
   resources :brands, only: %i(index show)
+  get "products/:id/:friend_url", to: "products#show", as: :product1
 end
