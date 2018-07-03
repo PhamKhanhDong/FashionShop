@@ -220,6 +220,8 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.2.0)
       sprockets-rails (>= 2.0.0)
+    rails-controller-testing (0.0.3)
+      rails (>= 4.2)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -352,6 +354,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rack-test (~> 1.0.0)
   rails (~> 5.2.0)
+  rails-controller-testing (~> 0.0.3)
   rake
   rspec-rails (~> 3.6)
   rubocop (~> 0.54.0)

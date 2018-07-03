@@ -50,6 +50,7 @@ group :test do
   gem "selenium-webdriver"
   gem "shoulda-matchers", "~> 3.1"
   gem "simplecov", require: false
+  gem "rails-controller-testing", "~> 0.0.3"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

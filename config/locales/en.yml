@@ -52,6 +52,7 @@ en:
       destroy:
         delete_succeed: "Delete succeed"
         delete_failed_have_product: "Delete failed. Category have product"
+        not_found_category: "Not found category"
       new:
         title: "Category"
       index:
