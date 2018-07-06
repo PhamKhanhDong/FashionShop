@@ -1,3 +1,4 @@
+require "elasticsearch/model"
 class Product < ApplicationRecord
   has_many :rates
   has_many :order_details
@@ -41,4 +42,40 @@ class Product < ApplicationRecord
   scope :best_selling,
     ->{select("products.*, SUM(order_details.quantity) as total_quantity")
     .joins(:order_details).group("products.id").order("total_quantity DESC")}
+
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
+  index_name Rails.application.class.parent_name.underscore
+  document_type self.name.downcase
+
+  settings index: {number_of_shards: 1} do
+    mapping dynamic: false do
+      indexes :name, analyzer: "english"
+    end
+  end
+
+  def self.search_query query
+    __elasticsearch__.search(
+    {
+      query: {
+        multi_match: {
+          query: query,
+          type: "phrase_prefix",
+          fields: ["name^5", "price", "old_price",  "short_description", "images.image"]
+        }
+      }
+    })
+  end
+
+  def as_indexed_json options = nil
+    self.as_json(
+      only: %i(name price short_description old_price),
+      include: {
+        images: {
+          only: :image
+        }
+      }
+    )
+  end
 end

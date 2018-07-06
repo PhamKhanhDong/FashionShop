@@ -9,7 +9,7 @@
     <div class="single-item-body">
       <p class="single-item-title"><%= product.name %></p>
       <p class="single-item-price">
-        <span class="flash-del"><%= currency product.price %></span>
+        <span class="flash-del"><%= currency product.old_price %></span>
         <span class="flash-sale"><%= currency product.price %>
         </span>
       </p>
@@ -20,7 +20,7 @@
         <i class="fa fa-shopping-cart"></i>
       <% end %>
       <a class="beta-btn primary"
-        <%= link_to t("products.details"), product_path(product) %>
+        <%= link_to t("products.details"), product_path(product._id) %>
         <i class="fa fa-chevron-right"></i></a>
       <div class="clearfix"></div>
     </div>
