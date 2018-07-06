@@ -44,12 +44,11 @@
         <div class="space10">&nbsp;</div>
         <div class="beta-comp">
           <%= form_tag search_path, method: :get, id: "searchform" do %>
-            <%= text_field_tag :search, params[:search], id: "s",
-              placeholder: "Search an items", require: true %>
-            <%= button_tag type: :submit,id: "searchsubmit" do %>
-            <i class ="fa fa-search"></i>
-              <% end %>
+              <%= text_field_tag :q, params[:q] %>
+              <%= button_tag type: :submit, id: "searchsubmit" do %>
+              <i class ="fa fa-search"></i>
             <% end %>
+          <% end %>
         </div>
         <%= render "layouts/block_cart" %>
       </div>

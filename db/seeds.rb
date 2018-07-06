@@ -34,7 +34,7 @@ end
   Category.create! name: Faker::Space.moon
 end
 
-10.times do |n|
+10000.times do |n|
   price_default = Faker::Number.decimal(3)
   Product.create name: Faker::LeagueOfLegends.champion,
     old_price: Faker::Number.decimal(3),

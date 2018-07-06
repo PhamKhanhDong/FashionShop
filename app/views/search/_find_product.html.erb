@@ -1,23 +1,21 @@
 <div class="container">
   <div id="content" class="space-top-none">
     <div class="main-content">
-      <div class="space60">&nbsp;</div>
       <div class="row">
         <div class="col-sm-12">
           <div class="beta-products-list">
             <h4><%= t "search.list_product" %></h4>
-            <div class="beta-products-details">
-              <p class="pull-left"><%= @products.total_count %>
-                <%= t "style_found" %></p>
-              <div class="clearfix"></div>
+            <div class="beta-products-details col-sm-12">
+              <p class="pull-left"><%= @products.size %>
+                <%= t ".style_found" %>
+              </p>
             </div>
             <div class="row">
             <%= render partial: "search/view_product",
-              collection: @products, as: "product"%>
+              collection: @products, as: :product %>
             </div>
           </div>
           <div class="space50">&nbsp;</div>
-          <%= paginate @products %>
         </div>
       </div>
     </div>
