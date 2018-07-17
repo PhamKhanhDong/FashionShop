@@ -35,3 +35,6 @@
 /public/javascripts/*
 .rspec
 /coverage
+node_modules
+app/assets/javascripts/react-app.js
+package-lock.json
